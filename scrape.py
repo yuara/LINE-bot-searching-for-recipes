@@ -1,5 +1,6 @@
 import json
 import requests
+import os
 
 applicationId = os.environ["LINE_GOHAN_RAKUTEN_RECIPE_ID"]
 
