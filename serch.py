@@ -24,7 +24,7 @@ def getMenus(word):
 
     re = requests.get(url).json()
     #print(re["result"][0]["recipeTitle"])
-    result = re["result"][0]["recipeTitle"]
+    result = [re["result"][0]["recipeTitle"], re["result"][0]["recipeUrl"]
     #result = [re["result"]["recipeTitle"], re["result"]["recipeUrl"]]
 
 
