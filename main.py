@@ -1,4 +1,3 @@
-import urllib.request
 import os
 import sys
 import json
