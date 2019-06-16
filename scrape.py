@@ -11,25 +11,25 @@ url_recipe = lambda categoryId: "https://app.rakuten.co.jp/services/api/Recipe/C
 
 
 def getMenus(word):
-serch = requests.get(url_category).json()
-#print(res)
-id_imfor = serch["result"]["medium"]
-for id in id_imfor:
-    if id["categoryName"] == word:
-        categoryId = str(id["parentCategoryId"]) + "-" + str(id["categoryId"])
-        #print(categoryId)
-        break
+    serch = requests.get(url_category).json()
+    #print(res)
+    id_imfor = serch["result"]["medium"]
+    for id in id_imfor:
+        if id["categoryName"] == word:
+            categoryId = str(id["parentCategoryId"]) + "-" + str(id["categoryId"])
+            #print(categoryId)
+            break
 
-url = url_recipe(categoryId)
-recipe_list = []
+    url = url_recipe(categoryId)
+    recipe_list = []
 
-re = requests.get(url).json()
-#print(re["result"][0]["recipeTitle"])
-result = re["result"][0]["recipeTitle"]
-#result = [re["result"]["recipeTitle"], re["result"]["recipeUrl"]]
+    re = requests.get(url).json()
+    #print(re["result"][0]["recipeTitle"])
+    result = re["result"][0]["recipeTitle"]
+    #result = [re["result"]["recipeTitle"], re["result"]["recipeUrl"]]
 
 
-#print(result)
+    #print(result)
 
-#result = '\n'.join(list)
-return result
+    #result = '\n'.join(list)
+    return result
