@@ -10,10 +10,10 @@ url_recipe = lambda categoryId: "https://app.rakuten.co.jp/services/api/Recipe/C
 
 
 def getMenus(word):
-    serch = requests.get(url_category).json()
+    id_imfor = requests.get(url_category).json()
     #print(res)
-    id_imfor = serch["result"]["medium"]
-    for id in id_imfor:
+    id_imfor_list = id_imfor["result"]["medium"]
+    for id in id_imfor_list:
         if id["categoryName"] == word:
             categoryId = str(id["parentCategoryId"]) + "-" + str(id["categoryId"])
             #print(categoryId)

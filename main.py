@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-import scrape as sc
+import serch as se
 from argparse import ArgumentParser
 from flask import Flask, request, abort
 
@@ -49,7 +49,7 @@ def callback():
 def handle_message(event):
 
     word = event.message.text
-    result = sc.getMenus(word)
+    result = se.getMenus(word)
 
     line_bot_api.reply_message(
     event.reply_token,
