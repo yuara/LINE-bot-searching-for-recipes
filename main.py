@@ -1,3 +1,9 @@
+import urllib.request
+import os
+import sys
+import json
+import scrape as sc
+from argparse import ArgumentParser
 from flask import Flask, request, abort
 
 from linebot import (
@@ -39,21 +45,17 @@ def callback():
         abort(400)
     return 'OK'
 
-## 2 ##
-###############################################
-#LINEのメッセージの取得と返信内容の設定(オウム返し)
-###############################################
-
-#LINEでMessageEvent（普通のメッセージを送信された場合）が起こった場合に、
-#def以下の関数を実行します。
-#reply_messageの第一引数のevent.reply_tokenは、イベントの応答に用いるトークンです。
-#第二引数には、linebot.modelsに定義されている返信用のTextSendMessageオブジェクトを渡しています。
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
+    word = event.message.text
+    result = sc.getMenus(word)
+
     line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text)) #ここでオウム返しのメッセージを返します。
+    event.reply_token,
+    TextSendMessage(text=result)
+    ) #ここでメッセージを返します。
 
 # ポート番号の設定
 if __name__ == "__main__":
