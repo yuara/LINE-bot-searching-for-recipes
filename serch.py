@@ -2,6 +2,7 @@ import json
 import requests
 import os
 import random
+from time import sleep
 
 applicationId = os.environ["LINE_GOHAN_RAKUTEN_RECIPE_ID"]
 
@@ -26,11 +27,13 @@ def getMenus(word):
             recipe_imfor = requests.get(url).json()
             recipe_imfor_list = recipe_imfor["result"]
 
+            sleep(0.5)
+
             for recipe_ranking in recipe_imfor_list:
 
-                result = recipe_ranking["recipeTitle"] + "\n" + recipe_ranking["recipeUrl"]
+                results = recipe_ranking["recipeTitle"] + "\n" + recipe_ranking["recipeUrl"]
 
-                result_list.append(result)
+                result_list.append(results)
 
 
     result =  random.choice(result_list)
