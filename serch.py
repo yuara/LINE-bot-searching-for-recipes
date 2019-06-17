@@ -28,10 +28,10 @@ def getMenus(word):
 
             for recipe_ranking in recipe_imfor_list:
 
-                result = recipe_imfor_list[recipe_ranking]["recipeTitle"] + "\n" + recipe_imfor_list[recipe_ranking]["recipeUrl"]
+                result = recipe_ranking["recipeTitle"] + "\n" + recipe_ranking["recipeUrl"]
 
                 result_list.append(result)
-                
+
 
     result =  random.choice(result_list)
 
