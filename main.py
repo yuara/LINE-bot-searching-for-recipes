@@ -49,7 +49,7 @@ def callback():
 def handle_message(event):
 
     word = event.message.text
-    result = se.getMenus(word)
+    result = se.getRecipe(word)
 
     line_bot_api.reply_message(
     event.reply_token,
