@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-import serch as se
+import search as se
 from argparse import ArgumentParser
 from flask import Flask, request, abort
 
